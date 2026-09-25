@@ -1,0 +1,56 @@
+[project]
+name = "iamtime"
+version = "0.1.0"
+authors = [
+  { name = "Anish Saha", email = "anish.saha@walmart.com" },
+  { name = "Konstantin Shmakov", email = "konstantin.shmakov@walmart.com" },
+]
+description = "iAmTime: a foundation model for instruction-conditioned in-context time-series tasks"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = [
+  "accelerate>=0.32,<2",
+  "einops>=0.7,<1",
+  "numpy>=1.24,<3",
+  "scikit-learn>=1.3,<2",
+  "torch>=2.2,<3",
+  "transformers>=4.48,<5",
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.optional-dependencies]
+notebook = [
+  "jupyter>=1,<2",
+  "matplotlib>=3.8,<4",
+]
+training = [
+  "datasets>=2.18,<5",
+  "pandas>=2,<3",
+]
+test = [
+  "pytest>=8,<9",
+]
+typecheck = [
+  "mypy>=1.9,<2",
+]
+
+[project.urls]
+Homepage = "https://github.com/anishsaha12/iAmTime"
+Issues = "https://github.com/anishsaha12/iAmTime/issues"
+Paper = "https://arxiv.org/abs/2603.22586"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/iAmTime"]
+
+[tool.mypy]
+ignore_missing_imports = true
